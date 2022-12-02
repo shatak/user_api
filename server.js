@@ -11,10 +11,6 @@ const passportJWT = require("passport-jwt");
 const HTTP_PORT = process.env.PORT || 8080;
 
 app.use(express.json());
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  next();
-});
 app.use(cors());
 
 passport.use(strategy);
