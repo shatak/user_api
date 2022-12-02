@@ -16,11 +16,8 @@ app.use(cors());
 
 app.use(passport.initialize());
 
-// JSON Web Token Setup
 let ExtractJwt = passportJWT.ExtractJwt;
-let JwtStrategy = passportJWT.Strategy;
 
-// Configure its options
 let jwtOptions = {};
 jwtOptions.jwtFromRequest = ExtractJwt.fromAuthHeaderWithScheme("jwt");
 
