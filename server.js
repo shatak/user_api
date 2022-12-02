@@ -9,8 +9,8 @@ const passport = require("passport");
 const passportJWT = require("passport-jwt");
 
 const HTTP_PORT = process.env.PORT || 8080;
-var whitelist = ["http://localhost:3000"];
-var corsOptions = {
+let whitelist = ["http://localhost:3000"];
+let corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
       callback(null, true);
