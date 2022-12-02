@@ -9,17 +9,7 @@ const passport = require("passport");
 const passportJWT = require("passport-jwt");
 
 const HTTP_PORT = process.env.PORT || 8080;
-let whitelist = ["http://localhost:3000/"];
-let corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      console.log(origin, "[cors origin received]");
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-};
+
 app.use(express.json());
 app.use(cors());
 
