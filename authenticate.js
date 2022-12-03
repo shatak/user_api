@@ -26,6 +26,7 @@ let strategy = new JwtStrategy(jwtOptions, function (jwt_payload, next) {
 passport.use(strategy);
 
 exports.authenticate = (req, res, next) => {
+  console.log("[authenticate]");
   passport.authenticate("jwt", { session: false }, (a, info) => {
     console.log(info, "[authenticate]");
     return next();

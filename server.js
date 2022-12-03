@@ -53,12 +53,15 @@ app.post("/api/user/login", (req, res) => {
 });
 
 app.get("/api/user/favourites", authenticate, (req, res) => {
+  console.log(req.user, "[User]");
   userService
     .getFavourites(req.user._id)
     .then((data) => {
+      console.log(data, "[Favourites data]");
       res.json(data);
     })
     .catch((msg) => {
+      console.log(msg, "[Error]");
       res.status(422).json({ error: msg });
     });
 });
