@@ -5,23 +5,12 @@ const dotenv = require("dotenv");
 dotenv.config();
 const userService = require("./user-service.js");
 const jwt = require("jsonwebtoken");
-const passport = require("passport");
-const passportJWT = require("passport-jwt");
 const { authenticate } = require("./authenticate.js");
 
 const HTTP_PORT = process.env.PORT || 8080;
 
 app.use(express.json());
 app.use(cors());
-
-app.use(passport.initialize());
-
-let ExtractJwt = passportJWT.ExtractJwt;
-
-let jwtOptions = {};
-jwtOptions.jwtFromRequest = ExtractJwt.fromAuthHeaderWithScheme("jwt");
-
-jwtOptions.secretOrKey = process.env.JWT_SECRET;
 
 app.post("/api/user/register", (req, res) => {
   userService
